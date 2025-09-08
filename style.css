@@ -1,6 +1,6 @@
 body {
-    background: rgb(125, 198, 205);
-    color: rgb(45, 45, 45);
+    background: #D3BC8D;
+    color: #D3BC8D;
     padding: 10px;
     font-family: Arial, sans-serif;
 }
@@ -12,12 +12,10 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
-    margin: 0 auto;
+    background: rgb(0, 0, 0);
+    margin:  20px auto;
     display: flex;
     padding: 10px;
-    
-    margin-bottom: 20px;
 }
 
 h1 {
@@ -47,7 +45,7 @@ a {
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
+    background: rgb(255, 255, 255); 
     display: flex;
     margin-top: 20px;
 }
@@ -68,7 +66,7 @@ main {
 
 /* interests section styles */
 #interests {
-    border: 4px silver ridge;
+    border-color: 4px #D3BC8D;
     padding: 8px;
     margin-top: 20px;
 }
