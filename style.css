@@ -66,11 +66,37 @@ main {
 
 /* interests section styles */
 #interests {
-    border-color: 4px #D3BC8D;
+    border: 4px ridge #000000;
     padding: 8px;
     margin-top: 20px;
 }
 
 h2, h3 {
     margin: 0px;
+}
+
+/* Portfolio styles */
+.content h1 {
+  color: #D3BC8D;
+}
+
+#portfolio {
+  list-style-type: none;
+  padding-left: 0; 
+}
+
+#portfolio li {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+  background: #eee;
+}
+
+#portfolio a {
+  text-decoration: none;
+  color: #D3BC8D;
 }
