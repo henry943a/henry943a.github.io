@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -69,6 +70,7 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
+        let positionX = 0;
 
 
 
@@ -80,9 +82,11 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-
-        
-
+       
+        moveBoxTo(200); // Moves box to x-position 50
+        moveBoxTo(positionX); // Moves box to right edge
+        positionX = positionX + 10; // Adds 10 to variableName
+        positionX += speed; // Increases variableName by 10
           
         }
 
@@ -94,7 +98,16 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-
+        let positionX = 0;
+        positionX = positionX + speed;
+        speed+= 3; // Another way to add 3 to variableName
+        let points = 0;
+       points = points + 1; // Adds 1 to variableName
+       points ++; // Increases variableName by 1
+         changeBoxText(points);
+        
+       
+       
 
 
 
