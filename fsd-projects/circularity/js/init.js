@@ -20,26 +20,24 @@ var init = function (window) {
         ///////////////////
         
         // TODO 1 : Declare and initialize our variables
-var circle; 
-var circles = [];
+        var circle; 
+        var circles = [];
+        
         // TODO 2 : Create a function that draws a circle 
-        function drawCircle(){circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-physikz.addRandomVelocity(circle, canvas, 5, 5);
-view.addChild(circle);
-circles.push(circle);}
-
+        function drawCircle(){
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
+            physikz.addRandomVelocity(circle, canvas, 5, 5);
+            view.addChild(circle);
+            circles.push(circle);
+        }
 
         // TODO 3 : Call the drawCircle() function
-
+        // (Handled within the loop for TODO 7)
 
         // TODO 7 : Use a loop to create multiple circles
-for (var i = 0; i < 100; i++) {
-    // Inside the loop, call the drawCircle function once for each iteration
-    drawCircle(); 
-
-}
-
-
+        for (var i = 0; i < 100; i++) {
+            drawCircle(); 
+        }
 
         ///////////////////
         // PROGRAM LOGIC //
@@ -51,50 +49,36 @@ for (var i = 0; i < 100; i++) {
         and check to see if it has drifted off the screen.         
         */
         function update() {
-            // TODO 4 : Update the position of each circle using physikz.updatePosition()
-physikz.updatePosition(circles[0]);
-physikz.updatePosition(circles[1]);
-physikz.updatePosition(circles[2]);
-physikz.updatePosition(circles[3]);
-physikz.updatePosition(circles[4]);
+            // Remove the repetitive calls from TODOs 4 and 5:
+            /*
+            physikz.updatePosition(circles[0]);
+            physikz.updatePosition(circles[1]);
+            physikz.updatePosition(circles[2]);
+            physikz.updatePosition(circles[3]);
+            physikz.updatePosition(circles[4]);
             
-            // TODO 5 : Call game.checkCirclePosition() on your circles
-game.checkCirclePosition(circles[0]);
-game.checkCirclePosition(circles[1]);
-game.checkCirclePosition(circles[2]);
-game.checkCirclePosition(circles[3]);
-game.checkCirclePosition(circles[4]);
-            // TODO 8 / TODO 9 : Iterate over the array
-           for (var i = 0; i < circles.length; i++) {
-           var currentCircle = circles[i];
-    // Assume 'circles' is an array of circle objects,
-// and 'physikz' and 'game' are objects with the relevant functions.
-
-// Start the animation/game loop
-function updateGame() {
-  // The loop iterates over each element in the 'circles' array
-  for (let i = 0; i < circles.length; i++) {
-    
-    physikz.updatePosition(circles[i]);
-
-   
-    game.checkCirclePosition(circles[i]);
-  }
-
- 
-}
-
-
-    
-}
-
+            game.checkCirclePosition(circles[0]);
+            game.checkCirclePosition(circles[1]);
+            game.checkCirclePosition(circles[2]);
+            game.checkCirclePosition(circles[3]);
+            game.checkCirclePosition(circles[4]);
+            */
             
-}
+            // TODO 8 / TODO 9: Set up a loop to iterate over each circle
+            for (var i = 0; i < circles.length; i++) {
+                // Get a reference to the current circle using bracket notation
+                var currentCircle = circles[i];
+                
+                // Call physikz.updatePosition within the loop for the current circle
+                physikz.updatePosition(currentCircle);
+                
+                // Add game.checkCirclePosition to the loop for the current circle
+                game.checkCirclePosition(currentCircle);
+            }
+        }
     
         game.checkCirclePosition = function(circle) {
 
-           
-            
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
            if ( circle.x > canvas.width ) {
@@ -115,9 +99,6 @@ function updateGame() {
             if (circle.y > canvas.height) {
                 circle.y = 0; 
             }
-
-
-
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
         
