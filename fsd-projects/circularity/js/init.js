@@ -97,21 +97,25 @@ function updateGame() {
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
+           if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
-            if (circle.x + circle.radius < 0) {
-    // If it goes off the left, move it to the right edge
-    circle.x = canvas.width + circle.radius;
-}
-if (circle.y + circle.radius < 0) {
-    // If it goes off the top, move it to the bottom edge
-    circle.y = canvas.height + circle.radius;
-}
-if (circle.y - circle.radius > canvas.height) {
-    // If it goes off the bottom, move it to the top edge
-    circle.y = -circle.radius;
-}
+            
+            // Left Boundary: If center goes past the left edge, move center to the right edge
+            if (circle.x < 0) {
+                circle.x = canvas.width; 
+            }
+            
+            // Top Boundary: If center goes past the top edge, move center to the bottom edge
+            if (circle.y < 0) {
+                circle.y = canvas.height; 
+            }
+            
+            // Bottom Boundary: If center goes past the bottom edge, move center to the top edge
+            if (circle.y > canvas.height) {
+                circle.y = 0; 
+            }
+
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
